@@ -1,7 +1,7 @@
-name: Hello World
+name: Workflow Sample
 on: [push]
 jobs:
-  Hello-World-Job:
+  workflow-jobs:
     runs-on: codebuild-github_actions_integrations-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
       - run: echo "Hello World!"
