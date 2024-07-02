@@ -4,4 +4,5 @@ jobs:
   workflow-jobs:
     runs-on: codebuild-github_actions_integrations-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
-      - run: echo "Hello World!"
+      - uses: actions/checkout@v4
+      - run: aws sts get-caller-identity
