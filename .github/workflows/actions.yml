@@ -18,6 +18,7 @@ on:
         required: true
 jobs:
   workflow-jobs:
+  runs-on: ubuntu-latest
     steps:
       - name: checkout
         if: ${{ github.event.inputs.skip_trivey == 'true' }}
