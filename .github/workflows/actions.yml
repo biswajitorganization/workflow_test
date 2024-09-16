@@ -20,7 +20,8 @@ jobs:
   workflow-jobs:
     runs-on: codebuild-github_actions_integrations-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
-      - uses: actions/checkout@v4
-      - run: aws sts get-caller-identity
+      - name: checkout
+        if: ${{ github.event.inputs.skip_trivey == 'true' }}
+        run: aws sts get-caller-identity
   
       
