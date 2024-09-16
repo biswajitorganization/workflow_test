@@ -1,5 +1,21 @@
 name: Workflow Sample
-on: [push]
+run-name: Download public docker images with specified versions and upload to its corresponding ECR
+on:
+  workflow_dispatch:
+    inputs:
+      image:
+        type: string
+        description: Docker image name as seen in Docker Hub
+        required: true
+      version:
+        type: string
+        description: Docker image version
+        required: true
+      skip_trivey:
+        type: boolean
+        description: Skip Trivy check?
+        default: false
+        required: true
 jobs:
   workflow-jobs:
     runs-on: codebuild-github_actions_integrations-${{ github.run_id }}-${{ github.run_attempt }}
